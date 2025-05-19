@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Chat</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%2323272f'/%3E%3Cpath d='M12 28L20 12L28 28' stroke='%2360A5FA' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='24' r='2.5' fill='%2360A5FA'/%3E%3C/svg%3E">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #18181b 0%, #23272f 100%);
+    }
+    .glass {
+      background: rgba(30, 32, 38, 0.95);
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px) saturate(120%);
+      -webkit-backdrop-filter: blur(12px) saturate(120%);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .main-title {
+      color: #fff;
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @media (max-width: 640px) {
+      .glass { padding: 1.2rem !important; border-radius: 1rem !important; }
+      .main-title { font-size: 1.5rem !important; }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen transition-all duration-700">
+  <div class="glass p-6 sm:p-4 w-full max-w-2xl border border-gray-800 shadow-2xl animate-fade-in min-h-[80vh] flex flex-col justify-center">
+    <div class="flex flex-col items-center mb-6">
+      <div class="w-16 h-16 mb-2 flex items-center justify-center rounded-full bg-blue-900 shadow-lg animate-float">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="#23272f"/>
+          <path d="M12 28L20 12L28 28" stroke="#60A5FA" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="20" cy="24" r="2.5" fill="#60A5FA"/>
+        </svg>
+      </div>
+      <h1 class="main-title text-3xl sm:text-2xl font-extrabold mb-1 tracking-tight">Welcome to AllAI</h1>
+      <p class="text-gray-400 text-center text-base">Sign in to continue to your dashboard</p>
+    </div>
+    <div id="supabase-auth-container" class="flex-1 flex flex-col justify-center"></div>
+  </div>
+  <script src="supabase-auth.js"></script>
+</body>
+</html>
